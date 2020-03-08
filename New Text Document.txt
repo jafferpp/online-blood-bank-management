@@ -1,0 +1,31 @@
+Dim p As New PictureBox
+08
+                p.Name = CType(i, String) + CType(j, String)
+
+
+Public Class Form1
+
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim i As Integer
+        For i = 0 To 5
+            Dim a As New Button
+            AddHandler a.Click, AddressOf clickme
+            a.Name = "a" & i
+            a.Text = "a" & i
+            a.Tag = i
+            a.Width = 30
+            a.Height = 30
+            a.Tag = i & "tag"
+            FlowLayoutPanel1.Controls.Add(a)
+        Next
+
+    End Sub
+    Private Sub clickme(ByVal sender As Object, ByVal e As EventArgs)
+        Dim btn As Button
+        btn = CType(sender, Button)
+        Dim a As String = btn.Tag
+
+        MessageBox.Show(a)
+
+    End Sub
+End Class
